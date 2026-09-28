@@ -30,7 +30,7 @@ pnpm install --frozen-lockfile
 | `VOLC_TTS_BASE_URL` / `VOLC_TTS_MODEL` | 是   | 流式合成，`resourceId` 形如 `seed-tts-2.0`                         |
 | `JWT_SECRET`                           | 是   | HS256 密钥，`openssl rand -hex 32` 生成                            |
 | `PORT`                                 | 否   | 服务端口，默认 `3000`                                              |
-| `LOG_LEVEL`                            | 否   | 日志级别，默认 `warn`                                              |
+| `LOG_LEVEL`                            | 否   | 日志级别，默认 `info`                                              |
 
 ## 初始化数据库
 
