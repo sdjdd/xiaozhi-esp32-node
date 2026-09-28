@@ -50,23 +50,15 @@ pnpm --filter server build   # tsc → server/dist，再由 tsc-alias 重写 @/*
 pnpm --filter web build      # tsc -b && vite build → web/dist
 ```
 
-`server/dist` 已把 `@/*` 别名与无扩展名导入处理为可直接被 `node` 加载，
-**无需 tsx**。注意 VAD 模型在 `server/models/`，按 `process.cwd()` 解析，
-所以运行时 cwd 必须是 `server/`。
+`server/dist` 已把 `@/*` 别名与无扩展名导入处理为可直接被 `node` 加载。
+VAD 模型不参与编译，部署时需将 `server/models/` 一并拷贝到运行目录。
 
 ## 部署
 
-服务端两种跑法，二选一（都要求 cwd 为 `server/`，且 `dist/`、`models/`、
-`node_modules/` 齐备）：
+服务端跑编译产物，`dist/`、`models/`、`node_modules/`、`.env` 齐备即可：
 
 ```bash
-cd server
-
-# 方式一：编译产物（推荐，生产只需 node）
 node dist/index.js
-
-# 方式二：直接跑源码（需 tsx 依赖）
-pnpm exec tsx src/index.ts
 ```
 
 `GET /` 返回 `Hello world!`，可作就绪探针。
