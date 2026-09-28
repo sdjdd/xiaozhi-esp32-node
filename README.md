@@ -4,7 +4,7 @@
 
 ## 环境要求
 
-- Node.js ≥ 22（运行依赖 `--env-file`）
+- Node.js ≥ 22
 - pnpm（仓库锁定 12.6.0，建议用 Corepack：`corepack enable`）
 - MySQL 8
 - 安装 `onnxruntime-node` 需放行构建脚本，仓库已在根
@@ -35,7 +35,7 @@ pnpm install --frozen-lockfile
 ## 初始化数据库
 
 表定义在 `src/database/schemas.ts`（无迁移文件，直接 push），库名须与
-`.env` 的 `MYSQL_DATABASE` / `DATABASE_URL` 一致：
+`.env` 的 `DATABASE_URL` 一致：
 
 ```bash
 mysql -e 'CREATE DATABASE xiaozhi_esp32_node CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci'
