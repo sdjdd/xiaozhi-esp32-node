@@ -1,3 +1,5 @@
+Successor: https://github.com/sdjdd/dashachun
+
 # xiaozhi-esp32-node
 
 小智（xiaozhi）服务端的 Node.js 实现。
